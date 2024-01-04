@@ -11,7 +11,10 @@ public class Main {
         int developerVelocity = scanner.nextInt();
         System.out.println("How many developers will work on this project full time?");
         int developers = scanner.nextInt();
-        double time = ((double) projectSize) / (developers * developerVelocity);
+        int numberOfPeopleToTalkTo = developers - 1;
+        double amountOfTimeSpentTalkingToOthers = numberOfPeopleToTalkTo * 0.1;
+        double developerVelocityIncludingCommunication = developerVelocity * (1 - amountOfTimeSpentTalkingToOthers);
+        double time = ((double) projectSize) / (developers * developerVelocityIncludingCommunication);
         System.out.println("Your project will take " + time + " weeks");
     }
 }
